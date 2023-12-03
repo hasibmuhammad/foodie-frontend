@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 const AddProduct = () => {
   const [brands, setBrands] = useState([]);
@@ -57,6 +58,26 @@ const AddProduct = () => {
     }
 
     const product = { name, brand, type, price, photo, rating, desc };
+
+    fetch("http://localhost:5000/addproduct", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(product),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Congratulations!",
+            text: "Product Added Successfully",
+            icon: "success",
+          });
+
+          form.reset();
+        }
+      });
   };
   return (
     <div className="max-w-7xl mx-auto my-20 bg-base-200 p-24 rounded-lg">
