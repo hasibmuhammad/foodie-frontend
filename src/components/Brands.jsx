@@ -19,7 +19,7 @@ const Brands = () => {
       </div>
       <div className="my-20 grid grid-cols-1 md:grid-cols-6 place-items-center gap-4">
         {brands.map((brand) => (
-          <Link>
+          <Link to={`/brands/${brand.brandName.toLowerCase()}`}>
             <div className="text-center" key={brand._id}>
               <img
                 className="w-24 h-24 object-cover"
