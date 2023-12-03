@@ -48,7 +48,7 @@ const AddBrands = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto bg-base-200 p-24 rounded-lg translate-y-24">
+    <div className="max-w-7xl mx-auto bg-base-200 p-24 rounded-lg my-20">
       <h1 className="text-center text-5xl font-extrabold">Add a brand</h1>
       <div className="flex justify-center items-center">
         <hr className="mt-4 border border-b-4 border-primary w-32" />

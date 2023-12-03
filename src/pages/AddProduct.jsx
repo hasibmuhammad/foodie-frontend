@@ -1,6 +1,6 @@
 const AddProduct = () => {
   return (
-    <div className="max-w-7xl mx-auto my-10 bg-base-200 p-8 rounded-lg">
+    <div className="max-w-7xl mx-auto my-20 bg-base-200 p-24 rounded-lg">
       <h1 className="text-center text-5xl font-extrabold">Add a product</h1>
       <div className="flex justify-center items-center">
         <hr className="mt-4 border border-b-4 border-primary w-32" />
