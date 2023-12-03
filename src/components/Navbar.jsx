@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     <div className="navbar bg-base-100 justify-between items-center flex-col md:flex-row gap-4 md:gap-0">
       <div className="">
-        <Link to={"/"} className="tracking-widest text-3xl font-extrabold">
+        <Link to={"/"} className="tracking-widest text-4xl font-extrabold">
           F<span className="text-primary">o</span>o
           <span className="text-primary">d</span>ie
         </Link>
