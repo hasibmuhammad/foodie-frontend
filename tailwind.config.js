@@ -6,6 +6,9 @@ export default {
       colors: {
         primary: "#67d4a5",
       },
+      backgroundImage: {
+        banner: "url(/1.jpg)",
+      },
     },
   },
   plugins: [require("daisyui")],

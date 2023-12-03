@@ -4,6 +4,7 @@ const Navbar = () => {
   const menus = (
     <>
       <NavLink to={"/"}>Home</NavLink>
+      <NavLink to={"/products"}>Products</NavLink>
       <NavLink to={"/addproduct"}>Add Product</NavLink>
       <NavLink to={"/addbrand"}>Add Brands</NavLink>
       <NavLink to={"/login"}>Login</NavLink>
