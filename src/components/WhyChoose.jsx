@@ -9,7 +9,7 @@ const WhyChoose = () => {
           <hr className="mt-4 border border-b-4 border-primary w-32" />
         </div>
       </div>
-      <div className="bg-primary p-10 rounded-lg flex flex-col md:flex-row gap-10 md:gap-0 items-center justify-around">
+      <div className="bg-primary p-10 rounded-lg flex flex-col md:flex-row gap-10 md:gap-0 md:items-center justify-around">
         <div className="flex items-center gap-4 text-white ">
           <FaCarSide className="text-3xl" />
           <div>
