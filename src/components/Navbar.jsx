@@ -12,14 +12,14 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-base-100 justify-between items-center flex-col md:flex-row gap-4 md:gap-0">
+    <div className="navbar bg-base-100 justify-between items-center flex-col md:flex-row gap-4 md:gap-0 my-5">
       <div className="">
         <Link to={"/"} className="tracking-widest text-4xl font-extrabold">
           F<span className="text-primary">o</span>o
           <span className="text-primary">d</span>ie
         </Link>
       </div>
-      <div className="flex flex-col md:flex-row items-center gap-4 md:gap-10 text-gray-500">
+      <div className="flex flex-col md:flex-row items-center gap-4 md:gap-10 text-gray-500 text-lg">
         {menus}
       </div>
       <div className="flex-none">
