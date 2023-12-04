@@ -1,7 +1,7 @@
 import Brands from "../components/Brands";
 import Feedback from "../components/Feedback";
 import WhyChoose from "../components/WhyChoose";
-import Banner from "./Banner";
+import Banner from "../components/Banner";
 
 const Home = () => {
   return (
