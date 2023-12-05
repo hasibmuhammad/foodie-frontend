@@ -1,9 +1,45 @@
+import { useState } from "react";
 import { FaCartShopping, FaStar } from "react-icons/fa6";
-import { ScrollRestoration, useLoaderData } from "react-router-dom";
+import {
+  ScrollRestoration,
+  useLoaderData,
+  useNavigate,
+} from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 
 const ProductDetail = () => {
   const product = useLoaderData();
-  console.log(product);
+  const navigate = useNavigate();
+
+  const success = () => toast.success("Added to cart!");
+  const error = () => toast.error("Already added to cart!");
+
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+
+    const cart = { ...product };
+
+    fetch("http://localhost:5000/addcart", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(cart),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          success();
+        }
+        if (data.alreadyExist) {
+          error();
+        }
+      });
+  };
+
   return (
     <div className="max-w-7xl mx-auto px-10 lg:px-0 my-24">
       <div className="flex flex-col lg:flex-row gap-10 lg:gap-24 lg:justify-around">
@@ -36,18 +72,8 @@ const ProductDetail = () => {
           </div>
           <p>{product.desc}</p>
 
-          <form className="space-y-5">
-            <div className="flex items-center gap-5">
-              <label className="font-bold">Quantity</label>
-              <input
-                type="number"
-                className="border border-black rounded-md p-2"
-                min={1}
-                max={10}
-                defaultValue={1}
-              />
-            </div>
-            <button className="btn btn-block btn-outline">
+          <form onSubmit={handleAddToCart} className="space-y-5">
+            <button type="submit" className="btn btn-block btn-outline">
               <FaCartShopping className="cursor-pointer" />
               Add To Cart
             </button>
@@ -55,6 +81,7 @@ const ProductDetail = () => {
         </div>
       </div>
       <ScrollRestoration />
+      <ToastContainer />
     </div>
   );
 };
