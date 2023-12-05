@@ -22,7 +22,7 @@ const Brands = () => {
           <Link to={`/brands/${brand.brandName.toLowerCase()}`}>
             <div className="text-center" key={brand._id}>
               <img
-                className="w-24 h-24 object-cover"
+                className="w-full h-24 object-cover"
                 src={brand.brandPhoto}
                 alt={brand.brandName}
               />

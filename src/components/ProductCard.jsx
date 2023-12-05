@@ -1,12 +1,13 @@
 import { FaStar, FaCartShopping, FaEye } from "react-icons/fa6";
 import { FaEdit } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
   return (
     <div className="card bg-base-100 shadow-2xl">
       <figure>
         <img
-          className="w-full h-60 object-cover"
+          className="w-full h-44 object-cover rounded-lg"
           src={product.photo}
           alt={product.name}
         />
@@ -17,7 +18,7 @@ const ProductCard = ({ product }) => {
           <div className="badge badge-secondary uppercase font-bold">
             ${product.price}
           </div>
-          <div className="badge badge-accent text-white font-bold">
+          <div className="badge badge-accent text-white font-bold uppercase">
             {product.brand}
           </div>
           <div className="badge badge-outline">{product.type}</div>
@@ -27,19 +28,32 @@ const ProductCard = ({ product }) => {
           </div>
         </div>
         <hr />
-        <div className="flex flex-wrap gap-4 text-lg">
-          <button className="btn btn-warning btn-xs">
-            <FaEye className="cursor-pointer" />
-            Vew Detail
-          </button>
-          <button className="btn btn-warning btn-xs">
+        <div className="flex flex-wrap justify-center gap-4">
+          <Link to={`/products/${product._id}`}>
+            <button
+              className="tooltip tooltip-warning btn btn-warning btn-md text-white hover:bg-black"
+              data-tip="View Detail"
+            >
+              <FaEye className="cursor-pointer" />
+              {/* Detail */}
+            </button>
+          </Link>
+          <button
+            className="tooltip tooltip-warning btn btn-warning btn-md text-white hover:bg-black"
+            data-tip="Add to Cart"
+          >
             <FaCartShopping className="cursor-pointer" />
-            Add To Cart
+            {/* Add To Cart */}
           </button>
-          <button className="btn btn-warning btn-xs">
-            <FaEdit className="cursor-pointer" />
-            Update
-          </button>
+          <Link to={`/update/${product._id}`}>
+            <button
+              className="tooltip tooltip-warning btn btn-warning btn-md text-white hover:bg-black"
+              data-tip="Update"
+            >
+              <FaEdit className="cursor-pointer" />
+              {/* Update */}
+            </button>
+          </Link>
         </div>
       </div>
     </div>

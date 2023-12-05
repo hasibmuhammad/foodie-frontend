@@ -20,7 +20,7 @@ const AddProduct = () => {
 
     const form = e.target;
     const name = form.name.value;
-    const brand = form.brand.value;
+    const brand = form.brand.value.toLowerCase();
     const type = form.type.value;
     const price = form.price.value;
     const photo = form.photo.value;
