@@ -7,7 +7,7 @@ const ProductCard = ({ product }) => {
     <div className="card bg-base-100 shadow-2xl">
       <figure>
         <img
-          className="w-full h-44 object-cover rounded-lg"
+          className="w-full h-56 object-cover rounded-lg"
           src={product.photo}
           alt={product.name}
         />
@@ -28,30 +28,17 @@ const ProductCard = ({ product }) => {
           </div>
         </div>
         <hr />
-        <div className="flex flex-wrap justify-center gap-4">
+        <div className="flex flex-wrap gap-4">
           <Link to={`/products/${product._id}`}>
-            <button
-              className="tooltip tooltip-warning btn btn-warning btn-md text-white hover:bg-black"
-              data-tip="View Detail"
-            >
+            <button className="btn btn-warning btn-md text-white hover:bg-black">
               <FaEye className="cursor-pointer" />
-              {/* Detail */}
+              Detail
             </button>
           </Link>
-          <button
-            className="tooltip tooltip-warning btn btn-warning btn-md text-white hover:bg-black"
-            data-tip="Add to Cart"
-          >
-            <FaCartShopping className="cursor-pointer" />
-            {/* Add To Cart */}
-          </button>
           <Link to={`/update/${product._id}`}>
-            <button
-              className="tooltip tooltip-warning btn btn-warning btn-md text-white hover:bg-black"
-              data-tip="Update"
-            >
+            <button className="btn btn-warning btn-md text-white hover:bg-black">
               <FaEdit className="cursor-pointer" />
-              {/* Update */}
+              Update
             </button>
           </Link>
         </div>

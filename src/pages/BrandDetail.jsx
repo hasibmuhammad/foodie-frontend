@@ -29,7 +29,9 @@ const BrandDetail = () => {
 
       <div className="max-w-7xl mx-auto my-20 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 px-10 lg:px-0">
         {brandProducts.map((product) => (
-          <ProductCard product={product} />
+          <div key={product._id}>
+            <ProductCard product={product} />
+          </div>
         ))}
       </div>
       <ScrollRestoration />
