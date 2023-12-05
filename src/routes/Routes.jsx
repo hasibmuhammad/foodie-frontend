@@ -8,6 +8,8 @@ import Products from "../pages/Products";
 import BrandDetail from "../pages/BrandDetail";
 import ProductDetail from "../pages/ProductDetail";
 import Cart from "../pages/Cart";
+import Register from "../pages/Register";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -25,17 +27,29 @@ export const router = createBrowserRouter([
       },
       {
         path: "/products/:id",
-        element: <ProductDetail />,
+        element: (
+          <PrivateRoute>
+            <ProductDetail />
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/products/${params.id}`),
       },
       {
         path: "/addproduct",
-        element: <AddProduct />,
+        element: (
+          <PrivateRoute>
+            <AddProduct />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/addbrand",
-        element: <AddBrand />,
+        element: (
+          <PrivateRoute>
+            <AddBrand />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/brands/:name",
@@ -45,12 +59,20 @@ export const router = createBrowserRouter([
       },
       {
         path: "/cart",
-        element: <Cart />,
+        element: (
+          <PrivateRoute>
+            <Cart />
+          </PrivateRoute>
+        ),
         loader: () => fetch("http://localhost:5000/cart"),
       },
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
       },
     ],
   },
