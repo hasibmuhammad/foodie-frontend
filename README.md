@@ -2,7 +2,7 @@
 
 Foodie app is a web app where the most famous or popular branded food will be available to order. This web app is built with love ❤️‍🔥💖 and passion 🔥✨
 
-##### Features
+##### 🚀Features
 
 - Login / Registration - Using Firebase
 - Login With Google
@@ -20,7 +20,7 @@ Foodie app is a web app where the most famous or popular branded food will be av
 - Browse All Products page
 - Last but not the least - a nice little loader
 
-##### Technologies Used
+##### 👨‍💻Technologies Used
 
 - ReactJs
 - Express js
