@@ -28,4 +28,4 @@ Foodie app is a web app where the most famous or popular branded food will be av
 - Node.js
 - Firebase
 
-[Live Demo](https://foodie-be4f4.web.app/) Refresh please couple of times if something loading( Because API is hosted on Vercel free version, so it stop working suddenly )
+[Click here to see Live Demo](https://foodie-be4f4.web.app/) Refresh please couple of times if something loading( Because API is hosted on Vercel free version, so it stops working suddenly😔)
