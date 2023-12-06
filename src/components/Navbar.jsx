@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 
@@ -19,7 +19,7 @@ const Navbar = () => {
           <NavLink to={"/cart"}>My Cart</NavLink>
         </>
       )}
-      {!loading && user ? (
+      {user ? (
         <Link onClick={handleLogout}>Log Out</Link>
       ) : (
         <NavLink to={"/login"}>Login</NavLink>
@@ -47,10 +47,7 @@ const Navbar = () => {
               className="btn btn-ghost btn-circle avatar"
             >
               <div className="w-10 rounded-full">
-                <img
-                  alt={user && user.displayName}
-                  src={user && user.photoURL}
-                />
+                <img src={user?.photoURL} />
               </div>
             </div>
             <ul
@@ -58,7 +55,7 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a className="">Hi, {user.displayName}</a>
+                <a className="">Hi, {user?.displayName}</a>
               </li>
             </ul>
           </div>

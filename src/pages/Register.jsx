@@ -11,10 +11,9 @@ import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../providers/AuthProvider";
 
 const Register = () => {
-  const { user, signUp, updateInfo } = useContext(AuthContext);
+  const { signUp, updateInfo } = useContext(AuthContext);
 
   const [error, setError] = useState("");
-  const [photo, setPhoto] = useState("https://i.imgur.com/dLxxRDy.png");
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -70,14 +69,16 @@ const Register = () => {
         if (res.user) {
           notify();
           updateInfo(res.user, {
-            displayName: name,
-            photoURL: photo,
+            displayName: res.user.displayName ? res.user.displayName : name,
+            photoURL: res.user.photoURL
+              ? res.user.photoURL
+              : "https://i.imgur.com/dLxxRDy.png",
           })
             .then(() => {
               form.reset();
               setTimeout(() => {
                 navigate(location?.state ? location.state : "/");
-              }, 3000);
+              }, 2000);
             })
             .catch();
         }

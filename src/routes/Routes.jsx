@@ -10,6 +10,7 @@ import ProductDetail from "../pages/ProductDetail";
 import Cart from "../pages/Cart";
 import Register from "../pages/Register";
 import PrivateRoute from "./PrivateRoute";
+import UpdateProduct from "../pages/UpdateProduct";
 
 export const router = createBrowserRouter([
   {
@@ -41,6 +42,16 @@ export const router = createBrowserRouter([
             <AddProduct />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/update/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateProduct />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`https://foodie-backend-tan.vercel.app/products/${params.id}`),
       },
       {
         path: "/addbrand",
