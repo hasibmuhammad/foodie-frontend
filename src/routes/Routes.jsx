@@ -11,11 +11,13 @@ import Cart from "../pages/Cart";
 import Register from "../pages/Register";
 import PrivateRoute from "./PrivateRoute";
 import UpdateProduct from "../pages/UpdateProduct";
+import NotFound from "../pages/NotFound";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <NotFound />,
     children: [
       {
         path: "/",
