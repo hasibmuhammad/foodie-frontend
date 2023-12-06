@@ -6,7 +6,7 @@ const AddProduct = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/brands")
+    fetch("https://foodie-backend-tan.vercel.app/brands")
       .then((res) => res.json())
       .then((data) => {
         setBrands(data);
@@ -59,7 +59,7 @@ const AddProduct = () => {
 
     const product = { name, brand, type, price, photo, rating, desc };
 
-    fetch("http://localhost:5000/addproduct", {
+    fetch("https://foodie-backend-tan.vercel.app/addproduct", {
       method: "POST",
       headers: {
         "content-type": "application/json",

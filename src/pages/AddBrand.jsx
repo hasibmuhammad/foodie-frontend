@@ -26,7 +26,7 @@ const AddBrands = () => {
     const brand = { brandName, brandPhoto };
 
     // Submit to the server
-    fetch("http://localhost:5000/addbrand", {
+    fetch("https://foodie-backend-tan.vercel.app/addbrand", {
       method: "POST",
       headers: {
         "content-type": "application/json",

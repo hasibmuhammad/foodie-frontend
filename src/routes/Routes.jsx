@@ -23,7 +23,7 @@ export const router = createBrowserRouter([
       {
         path: "/products",
         element: <Products />,
-        loader: () => fetch("http://localhost:5000/products"),
+        loader: () => fetch("https://foodie-backend-tan.vercel.app/products"),
       },
       {
         path: "/products/:id",
@@ -33,7 +33,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.id}`),
+          fetch(`https://foodie-backend-tan.vercel.app/products/${params.id}`),
       },
       {
         path: "/addproduct",
@@ -55,7 +55,7 @@ export const router = createBrowserRouter([
         path: "/brands/:name",
         element: <BrandDetail />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/brands/${params.name}`),
+          fetch(`https://foodie-backend-tan.vercel.app/brands/${params.name}`),
       },
       {
         path: "/cart",
@@ -64,7 +64,7 @@ export const router = createBrowserRouter([
             <Cart />
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/cart"),
+        loader: () => fetch("https://foodie-backend-tan.vercel.app/cart"),
       },
       {
         path: "/login",

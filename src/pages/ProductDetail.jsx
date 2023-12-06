@@ -21,7 +21,7 @@ const ProductDetail = () => {
 
     const cart = { ...product };
 
-    fetch("http://localhost:5000/addcart", {
+    fetch("https://foodie-backend-tan.vercel.app/addcart", {
       method: "POST",
       headers: {
         "content-type": "application/json",
