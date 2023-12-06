@@ -28,4 +28,4 @@ Foodie app is a web app where the most famous or popular branded food will be av
 - Node.js
 - Firebase
 
-[@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+[Live Demo](https://foodie-be4f4.web.app/) Refresh please couple of times if something loading( Because API is hosted on Vercel free version, so it stop working suddenly )
