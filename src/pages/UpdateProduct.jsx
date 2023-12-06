@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import { ScrollRestoration, useLoaderData, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const UpdateProduct = () => {
@@ -229,6 +229,7 @@ const UpdateProduct = () => {
           Update
         </button>
       </form>
+      <ScrollRestoration />
     </div>
   );
 };
