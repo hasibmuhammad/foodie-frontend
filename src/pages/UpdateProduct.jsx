@@ -4,10 +4,11 @@ import Swal from "sweetalert2";
 
 const UpdateProduct = () => {
   const loadedProduct = useLoaderData();
-  const selectedBrand =
-    loadedProduct.brand[0].toUpperCase() + loadedProduct.brand.slice(1);
+  const selectedBrand = loadedProduct.brand.toLowerCase();
 
   const [selected, setSelected] = useState(selectedBrand);
+
+  console.log(loadedProduct, selectedBrand);
 
   const [brands, setBrands] = useState([]);
 
@@ -132,7 +133,7 @@ const UpdateProduct = () => {
               >
                 <option value="">Select a brand</option>
                 {brands.map((brand) => (
-                  <option key={brand._id} value={brand.brandName}>
+                  <option key={brand._id} value={brand.brandName.toLowerCase()}>
                     {brand.brandName}
                   </option>
                 ))}
