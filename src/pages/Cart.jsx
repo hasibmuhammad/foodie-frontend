@@ -1,11 +1,20 @@
 import { FaTrash } from "react-icons/fa6";
 import Swal from "sweetalert2";
 import { useLoaderData } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Cart = () => {
-  const loadedCart = useLoaderData();
-  const [cart, setCart] = useState(loadedCart);
+  const [loading, setLoading] = useState(true);
+  const [cart, setCart] = useState([]);
+
+  useEffect(() => {
+    fetch("https://foodie-backend-tan.vercel.app/cart")
+      .then((res) => res.json())
+      .then((data) => {
+        setCart(data);
+        setLoading(false);
+      });
+  }, []);
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -46,10 +55,21 @@ const Cart = () => {
         </div>
       </div>
 
-      {cart.length === 0 && (
+      {!loading && cart.length === 0 && (
         <p className="text-center my-20 text-warning text-2xl">
           Your cart is empty!
         </p>
+      )}
+
+      {loading && (
+        <div className="flex justify-center my-20">
+          <div className="flex justify-center">
+            <span className="loading loading-ball loading-xs"></span>
+            <span className="loading loading-ball loading-sm"></span>
+            <span className="loading loading-ball loading-md"></span>
+            <span className="loading loading-ball loading-lg"></span>
+          </div>
+        </div>
       )}
 
       <div className="max-w-2xl mx-auto my-24 px-10 lg:px-0">

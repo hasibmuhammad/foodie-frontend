@@ -23,7 +23,6 @@ export const router = createBrowserRouter([
       {
         path: "/products",
         element: <Products />,
-        loader: () => fetch("https://foodie-backend-tan.vercel.app/products"),
       },
       {
         path: "/products/:id",
@@ -64,7 +63,6 @@ export const router = createBrowserRouter([
             <Cart />
           </PrivateRoute>
         ),
-        loader: () => fetch("https://foodie-backend-tan.vercel.app/cart"),
       },
       {
         path: "/login",

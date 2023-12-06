@@ -1,4 +1,4 @@
-import { useAsyncError, useLoaderData } from "react-router-dom";
+import { ScrollRestoration } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
 import { useEffect, useState } from "react";
 
@@ -39,6 +39,7 @@ const Products = () => {
           <ProductCard key={product._id} product={product} />
         ))}
       </div>
+      <ScrollRestoration />
     </div>
   );
 };
