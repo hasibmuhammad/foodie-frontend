@@ -85,7 +85,7 @@ const UpdateProduct = () => {
       .then((data) => {
         if (data.modifiedCount === 0) {
           Swal.fire({
-            title: "Oops!",
+            title: "Ooopps!",
             text: "You didn't udpate anything!",
             icon: "error",
           });
