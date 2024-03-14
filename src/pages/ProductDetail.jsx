@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaCartShopping, FaStar } from "react-icons/fa6";
 import {
   ScrollRestoration,
@@ -8,26 +8,44 @@ import {
 import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
+import { AuthContext } from "../providers/AuthProvider";
 
 const ProductDetail = () => {
   const product = useLoaderData();
   const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
+
+  console.log(user);
 
   const success = () => toast.success("Added to cart!");
-  const error = () => toast.error("Already added to cart!");
+  const updated = () => toast.success("Updated the cart!");
 
   const handleAddToCart = (e) => {
     e.preventDefault();
 
-    const cart = { ...product };
+    const cart = {
+      productId: product._id,
+      name: product.name,
+      brand: product.brand,
+      type: product.type,
+      price: product.price,
+      photo: product.photo,
+      rating: product.rating,
+      desc: product.desc,
+      email: user?.email,
+      amount: 1,
+    };
 
-    fetch("https://foodie-backend-tan.vercel.app/addcart", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(cart),
-    })
+    fetch(
+      `https://foodie-backend-tan.vercel.app/addcart?email=${user?.email}`,
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(cart),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -35,7 +53,7 @@ const ProductDetail = () => {
           success();
         }
         if (data.alreadyExist) {
-          error();
+          updated();
         }
       });
   };

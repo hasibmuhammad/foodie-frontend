@@ -10,6 +10,7 @@ const AddBrands = () => {
     setError("");
 
     const form = e.target;
+
     const brandName = form.name.value;
     const brandPhoto = form.photo.value;
 

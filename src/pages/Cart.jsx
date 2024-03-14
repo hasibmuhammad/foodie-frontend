@@ -1,14 +1,16 @@
 import { FaTrash } from "react-icons/fa6";
 import Swal from "sweetalert2";
 import { useLoaderData } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../providers/AuthProvider";
 
 const Cart = () => {
   const [loading, setLoading] = useState(true);
   const [cart, setCart] = useState([]);
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    fetch("https://foodie-backend-tan.vercel.app/cart")
+    fetch(`https://foodie-backend-tan.vercel.app/cart?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setCart(data);
@@ -92,6 +94,10 @@ const Cart = () => {
                 <p className="badge bg-primary text-white font-bold">
                   ${ct.price}
                 </p>
+              </div>
+              <div>
+                <span className="text-slate-400 text-md">X</span>
+                <span className="text-md font-semibold"> {ct.amount}</span>
               </div>
               <button
                 onClick={() => handleDelete(ct._id)}
